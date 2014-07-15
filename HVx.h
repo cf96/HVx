@@ -26,9 +26,9 @@ DWORD HvxPeekDword(ULONGLONG Address)
 }
 
 BYTE* HvxPeekBytes(ULONGLONG Address, DWORD length){
-	BYTE * data = (BYTE*)XPhysicalAlloc( length, MAXULONG_PTR, NULL, PAGE_READWRITE );
-    addr = 0x8000000000000000ULL + (DWORD)MmGetPhysicalAddress((DWORD*)data);
-    HvxGetVersion( 0x72627472, 5, Address, addr, length );
+	BYTE * data = (BYTE*)XPhysicalAlloc( length, MAXULONG_PTR, NULL, PAGE_READWRITE ); //make sure to free this memory when you are done with it!
+    	addr = 0x8000000000000000ULL + (DWORD)MmGetPhysicalAddress((DWORD*)data);
+    	HvxGetVersion( 0x72627472, 5, Address, addr, length );
 	return data;
 }
 
